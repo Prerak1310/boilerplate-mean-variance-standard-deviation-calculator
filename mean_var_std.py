@@ -2,6 +2,7 @@ import numpy as np
 
 
 def calculate(a):
+  try:
     matrix = np.array(a).reshape(3, 3)
     calculations = {
         "mean": [list(matrix.mean(axis=0)), list(matrix.mean(axis=1)), matrix.mean()],
@@ -15,7 +16,9 @@ def calculate(a):
         "min": [list(matrix.min(axis=0)), list(matrix.min(axis=1)), matrix.min()],
         "sum": [list(matrix.sum(axis=0)), list(matrix.sum(axis=1)), matrix.sum()],
     }
-    print(calculations)
+    return calculations
+  except:
+    raise ValueError("List must contain nine numbers.")
 
 
-calculate([0, 1, 2, 3, 4, 5, 6, 7, 8])
+
